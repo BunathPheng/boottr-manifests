@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boottr
+  labels:
+    app: boottr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: boottr
+  template:
+    metadata:
+      labels:
+        app: boottr
+    spec:
+      containers:
+        - name: boottr
+          image: docker.io/phengbunath/boottr:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
